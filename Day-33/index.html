@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Day01</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <h1> Day 33 - React JS introduction</h1>
+
+    <div id="root"> </div>
+    <script type="text/babel">
+
+        // React code will go here
+        function Hello() {
+            return <h1> Hello React</h1>;
+        }
+        ReactDOM.render(<Hello />, document.getElementById("root"))
+
+    </script>
+
+
+    <div id="root2"> </div>
+    <script type="text/babel">
+        function Text() {
+            return <p> Happy New year</p>
+        }
+        ReactDOM.render(<Text />, document.getElementById("root2"))
+    </script>
+
+
+    <div id="zurag"> </div>
+    <script type="text/babel">
+        function Zurag() {
+            return <img src="https://img.freepik.com/free-psd/happy-new-year-2023-gold-text-effect-banner-design-template_47987-12125.jpg?w=2000" alt="" width="200px"></img>
+        }
+        ReactDOM.render(<Zurag />, document.getElementById("zurag"))
+    </script>
+
+    <div id="buttons"> </div>
+    <script type="text/babel">
+        function Button() {
+            return <label for="text"> click me </label>
+        }
+        ReactDOM.render(<Button />, document.getElementById("buttons"))
+    </script>
+
+
+
+
+
+    <script crossorigin="" src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin="" src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <!-- <script src="js/math.js"></script> -->
+</body>
+
+</html>
