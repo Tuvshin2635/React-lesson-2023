@@ -14,14 +14,41 @@
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  background-color: aliceblue;
+  /* background-color: #282c34; */
+  /* min-height: 100vh; */
+  
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  /* color: white; */
+  color: black;
+}
+
+.container {
+  display: flex;
+  gap: 30px;
+
+}
+.container>img {
+  width: 200px;
+}
+.text {
+  text-align: left;
+
+}
+
+.fa-sharp {
+  color: blue;
+}
+.text1{
+  color: rgba(5, 89, 247, 0.693);
+  letter-spacing: 2px;
+}
+.text3{
+  color: gray;
 }
 
 .App-link {
