@@ -1,5 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
               <p> <i class="fa-sharp fa-solid fa-eject"></i>   55 </p>
               <p className="text1"> Haught or Naught</p>
               <p> High- minded or absent- minded? You decide</p>
+              <button type="button" class="btn btn-danger">Danger</button>
+              
               <p className="text3"> Submitted by: <i class="fa-brands fa-facebook"></i></p>
             </div>
           </div>
@@ -56,8 +60,10 @@ function App() {
 
 
 
+      {/* <greet/> */}
 
     </div>
+
   );
 }
 
