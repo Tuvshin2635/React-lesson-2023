@@ -1,0 +1,66 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-image: url(https://img.freepik.com/premium-photo/abstract-flight-retro-neon-hyper-warp-space-tunnel-3d-illustration_250994-2075.jpg?w=2000);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(28, 95, 197);
+}
+
+.app-header {
+  text-align: center;
+  width: 800px;
+  height: 1000px;
+  margin: 100px;
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
+  background-color: rgb(255, 255, 255);
+}
+
+h1 {
+  padding-top: 70px;
+}
+
+hr {
+  width: 600px;
+  margin: 5px 95px;
+}
+
+img {
+  width: 150px;
+  border-radius: 5px;
+}
+
+.select-first {
+  padding: 30px;
+  display: flex;
+  gap: 30px;
+  text-align: left;
+  margin-left: 66px;
+}
+
+h6 {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.submitted {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  color: rgb(0, 0, 0, 0.5);
+  margin-top: 10px;
+}
+
+.submitted img {
+  width: 30px;
+  border-radius: 50%;
+}

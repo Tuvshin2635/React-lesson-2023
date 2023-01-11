@@ -5,15 +5,34 @@ import Product from "./Component/HandleUp";
 import Head from "./Component/Head";
 
 function App() {
-  function handleUpVote(props) {
-    // console.log("upvoted");
-    console.log(props);
-  }
+
+// function handleProductUpVote(productID){
+//   console.log(('upvoted', productId))
+//   const foundProduct = products.filter(product => {
+//     if ( product.id == productID) {
+//       return product
+//     }
+//   })
+//   foundProduct[0].votes = foundProduct[0].votes+1;
+// }
+
+// function handleProductUpVote(productId){
+
+//   const newProduct = product.filter(product => {
+//     if ( product.id == productId) {
+//       return product
+//     }
+//   })
+//   foundProduct[0].votes = foundProduct[0].votes+1;
+// }
+
+  
+
+
 
   return (
     <div className="App">
 
-    {/* <Head /> */}
       
       <header className="App-header">
         <h2>
@@ -25,7 +44,7 @@ function App() {
             <div className="text">
               <a
                 onClick={() => {
-                  handleUpVote();
+                  // handleUpVote();
                 }}
               >
 
@@ -91,7 +110,6 @@ function App() {
         </div>
       </header>
 
-      {/* <greet/> */}
     </div>
   );
 }
