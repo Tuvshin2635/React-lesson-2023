@@ -5,18 +5,19 @@ import { useState } from "react";
 import Counter from "./Component/Counter";
 import UpdateArrays, { List } from "./Component/UpdateArrays";
 import UpdatingObjects from "./Component/UpdatingObjects";
+import Exercises from "./Component/Exercise";
 
 function App() {
-  const [counter, setCounter] = useState(0);
-  const [inputText, setInputText] = useState("");
+  // const [counter, setCounter] = useState(0);
+  // const [inputText, setInputText] = useState("");
 
-  const handleClick = () => {
-    setCounter(counter + 1);
-  };
+  // const handleClick = () => {
+  //   setCounter(counter + 1);
+  // };
 
-  const handleInput = function (event) {
-    setInputText(event.target.value);
-  };
+  // const handleInput = function (event) {
+  //   setInputText(event.target.value);
+  // };
 
   return (
     <div className="App">
@@ -38,9 +39,11 @@ function App() {
       {/* < Counter />
 
       <UpdateArrays /> */}
-
+{/* 
       <List />
-      <UpdatingObjects />
+      <UpdatingObjects /> */}
+
+      <Exercises />
       
     </div>
   );
