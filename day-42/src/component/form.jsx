@@ -1,18 +1,18 @@
-// import React from "react";
-// import { useState } from "react";
+import React from "react";
+import { useState } from "react";
 
-// const Form = () => {
+const Form = () => {
 
-//   const [user, setUser] = useState(0);
-//   const handleRegister = () => {
-//     setInputText (event.terget.value);
-//   };
+  const [user, setUser] = useState(0);
+  const handleRegister = () => {
+    setInputText (event.terget.value);
+  };
     
-//   }
+  }
 
-//   return (
+  return (
    
-//   );
-// };
+  );
+};
 
-// export default Form;
+export default Form;
