@@ -29,7 +29,9 @@ export default function Exercises() {
     return c;
   }
   //   console.log(randomNumber(2, 5));
+  
 
+  
   //   5r bodlogo
   function findAverage(arr) {
     let sum = 0;
