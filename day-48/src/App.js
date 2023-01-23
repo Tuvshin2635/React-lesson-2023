@@ -4,18 +4,22 @@ import Exercise from "./component/input";
 import Anime from "./component/Anime";
 import Button from "./component/Button";
 import TopAnime from "./component/topAnime";
+import Pascal from "./component/pascal";
+import Pascals from "./component/pascal";
+import PascalTriangle from "./component/pascal2";
 
 function App() {
   return (
     <div className="App">
-      <Exercise />;
+      {/* <Exercise />; */}
       <hr />
       <p />
-      <Anime />
+      {/* <Anime />
       <Button />
-      <TopAnime />
-      <UpOutlined />
-      <BarChartOutlined />
+      <TopAnime /> */}
+      {/* <Pascal /> */}
+
+      <PascalTriangle numRows={5} />
     </div>
   );
 }
