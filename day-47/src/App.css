@@ -1,0 +1,24 @@
+.App {
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  margin-left: 39%;
+}
+.counter1 {
+  width: 200px;
+  height: 200px;
+  border: 2px solid black;
+  margin-right: 50px;
+}
+
+.counter2 {
+  width: 200px;
+  height: 200px;
+  border: 2px solid black;
+}
+
+.hover {
+  background: #ffffd8;
+}
