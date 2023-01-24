@@ -7,6 +7,7 @@ import TopAnime from "./component/topAnime";
 import Pascal from "./component/pascal";
 import Pascals from "./component/pascal";
 import PascalTriangle from "./component/pascal2";
+import RepeatMessage from "./component/efffect";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Button />
       <TopAnime /> */}
       {/* <Pascal /> */}
+      <RepeatMassage />
 
       <PascalTriangle numRows={5} />
     </div>
