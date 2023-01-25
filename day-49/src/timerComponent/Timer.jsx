@@ -9,18 +9,27 @@ import { useState } from "react";
 import { renderElapsedString } from "./Helpers";
 
 export default function Timer({
+  id,
   title,
   project,
   elapsed,
   runningSince,
-  runningTime,
+  onTrashClick,
+  onStartClick,
 }) {
   //gadnaas avax xeseg
 
   const [TimerRunning, setTimerRunning] = useState(false);
-  //   const [runningInterval, setRunningInterval] = useState;
-
+  // const [runningInterval, setRunningInterval] = useState;
   const timer = renderElapsedString(elapsed, runningSince);
+
+  function handleStartClick() {
+    onStartClick(id);
+  }
+
+  function handleDelete() {
+    onTrashClick(id);
+  }
 
   return (
     <Container maxWidth="sm">
@@ -41,9 +50,7 @@ export default function Timer({
             justifyContent: "center",
             allignItems: "Center",
           }}
-        >
-          <h1> {runningTime}</h1>
-        </Box>
+        ></Box>
         <Box
           sx={{
             display: "flex",
@@ -61,16 +68,19 @@ export default function Timer({
           }}
         >
           <h1> {elapsed} </h1>
-          <DeleteForeverIcon />
+          <DeleteForeverIcon onClick={handleDelete} />
           <EditIcon />
         </Box>
         <TimerActionButton
-          isTimerRunning={TimerRunning}
-          onStartClick={() => {
-            setTimerRunning(true);
-          }}
+          isTimerRunning={runningSince}
+          onStartClick={handleStartClick}
+          // onStartClick={(handleStartClick) => {
+          //   setTimerRunning(true);
+          //   console.log("start");
+          // }}
           onStopClick={() => {
             setTimerRunning(false);
+            console.log("stop");
           }}
         ></TimerActionButton>
       </Card>

@@ -1,19 +1,19 @@
 const timerData = [
   {
-    title: "Mow the lawn",
+    title: "Хичээл хийх цаг",
     project: "House Chores",
     elapsed: 5459795,
     id: "0a4a79cb-b06d-4cb1-883d-549a1e3b66d7",
     runningSince: null,
   },
   {
-    title: "Clear paper jam",
+    title: "Гүйх цаг",
     project: "Office Chores",
     elapsed: 1273998,
     id: "a73c1d19-f32d-4aff-b470-cea4e792406a",
   },
   {
-    title: "Ponder origins of universe",
+    title: "Ном унших цаг",
     project: "Life Chores",
     id: "2c43306e-5b44-4ff8-8753-33c35adbd06f",
     elapsed: 218230384401,
