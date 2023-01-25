@@ -1,3 +1,6 @@
+import { v4 as uuidv4 } from "uuid";
+// import newTimer
+
 function renderElapsedString(elapsed, runningSince) {
   let totalElapsed = elapsed;
   if (runningSince) {
@@ -24,4 +27,13 @@ function pad(numberString, size) {
   return padded;
 }
 
-export { renderElapsedString, millisecondsToHuman };
+function newTimer(attrs = {}) {
+  return {
+    title: attrs.title || "timer",
+    project: attrs.project || "Project",
+    id: uuidv4(),
+    elapsed: 0,
+  };
+}
+
+export { renderElapsedString, newTimer };

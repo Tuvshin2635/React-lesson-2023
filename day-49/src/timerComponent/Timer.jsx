@@ -16,12 +16,22 @@ export default function Timer({
   runningSince,
   onTrashClick,
   onStartClick,
+  onStopClick,
+  onEditClick,
 }) {
   //gadnaas avax xeseg
 
   const [TimerRunning, setTimerRunning] = useState(false);
   // const [runningInterval, setRunningInterval] = useState;
   const timer = renderElapsedString(elapsed, runningSince);
+
+  function handleEditClick() {
+    onEditClick(id);
+  }
+
+  function handleStopClick() {
+    onStopClick(id);
+  }
 
   function handleStartClick() {
     onStartClick(id);
@@ -69,7 +79,7 @@ export default function Timer({
         >
           <h1> {elapsed} </h1>
           <DeleteForeverIcon onClick={handleDelete} />
-          <EditIcon />
+          <EditIcon onClick={handleEditClick} />
         </Box>
         <TimerActionButton
           isTimerRunning={runningSince}
@@ -78,11 +88,13 @@ export default function Timer({
           //   setTimerRunning(true);
           //   console.log("start");
           // }}
-          onStopClick={() => {
-            setTimerRunning(false);
-            console.log("stop");
-          }}
-        ></TimerActionButton>
+
+          onStopClick={handleStopClick}
+          // onStopClick={() => {
+          //   setTimerRunning(false);
+          //   console.log("stop");
+          // }}
+        />
       </Card>
     </Container>
   );
