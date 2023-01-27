@@ -1,6 +1,7 @@
 import "./App.css";
 import { useEffect, useState } from "react";
 import InputForm from "./component/InputForm";
+import UpdateForm from "./component/UpdateForm";
 
 const GET_DATA_URL = "http://localhost:8080/data";
 const DELETE_DATA_URL = "http://localhost:8080/data";
@@ -8,6 +9,8 @@ const DELETE_DATA_URL = "http://localhost:8080/data";
 function App() {
   const [data, setData] = useState([]);
   const [isloaded, setIsLoaded] = useState(false);
+  const [isOpenForm, setIsOpenForm] = useState(false); //4tii shag
+  const [currentData, setCurrentData] = useState({});
 
   useEffect(() => {
     async function fetchData() {
@@ -39,6 +42,12 @@ function App() {
     deleteData(d);
   }
 
+  //tretii shag
+  function handleEdit(data) {
+    console.log(data);
+    setCurrentData(data);
+    setIsOpenForm(true);
+  }
   return (
     <div className="App">
       <h1> day51 React express FullStack APP dataBASE</h1>
@@ -48,6 +57,15 @@ function App() {
         setIsLoaded={setIsLoaded}
         setData={setData}
       />
+      {isOpenForm ? (
+        <UpdateForm
+          setCurrentData={setCurrentData}
+          currentData={currentData} //5ii shag
+          setData={setData}
+        />
+      ) : (
+        <div></div>
+      )}
       {isloaded
         ? "...LOADING "
         : data &&
@@ -58,6 +76,9 @@ function App() {
                   {d.name} -- {d.major}
                 </p>
                 <button onClick={() => handleDelete(d.id)}> Delete </button>
+                <br />
+                <button onClick={() => handleEdit(d)}> Edit </button>
+                {/* //vtoroi shag */}
               </div>
             );
           })}
