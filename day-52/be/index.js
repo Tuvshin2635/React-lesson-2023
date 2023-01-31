@@ -2,13 +2,13 @@ const { response } = require("express");
 const cors = require("cors");
 const fs = require("fs");
 const express = require("express");
-const bodyParser = require("body-parser");
+// const bodyParser = require("body-parser");
 
 const { get, request } = require("http");
 
 const app = express();
 const PORT = 8080;
-app.use(bodyParser.json());
+// app.use(bodyParser.json());
 
 app.use(cors());
 app.use(express.json());
@@ -103,6 +103,74 @@ app.delete("/users", (request, response) => {
     );
   });
 });
+
+app.put("/users", (request, response) => {
+  console.log(request.body);
+
+  fs.readFile("./data/users.json", "utf-8", (readError, readData) => {
+    if (readError) {
+      response.json({
+        status: "file read ERROR",
+        data: [],
+      });
+    }
+    const savedData = JSON.parse(readData);
+    const changedData = savedData.map((d) => {
+      if (d.id === request.body.id) {
+        (d.username = request.body.username), (d.age = request.body.age);
+      }
+      return d;
+    });
+
+    fs.writeFile(
+      "./data/users.json",
+      JSON.stringify(changedData),
+      (writeError) => {
+        if (writeError) {
+          response.json({
+            status: "file write error",
+            data: [],
+          });
+        }
+        response.json({
+          status: "success",
+          data: changedData,
+        });
+      }
+    );
+  });
+});
+
+// app.edit("/users", (request, response) => {
+//   const body = request.body;
+//   fs.readFile("./data/users.json", "utf-8", (readError, readData) => {
+//     if (readError) {
+//       response.json({
+//         status: "file reader ERROR",
+//         data: [],
+//       });
+//     }
+//     const readObject = JSON.parse(readData);
+
+//     const filteredObjects = readObject.filter((o) => o.id !== body.userId); // o --n idtai tentsvv bish uyd hadgalaad bna
+//     fs.writeFile(
+//       "./data/users.json",
+//       JSON.stringify(filteredObjects),
+//       (writeError) => {
+//         if (writeError) {
+//           response.json({
+//             status: "write file error",
+//             data: [],
+//           });
+//         }
+//         response.json({
+//           status: "success",
+//           data: filteredObjects,
+//         });
+//       }
+//     );
+//   });
+// });
 
 app.listen(PORT, () => {
   console.log(`server is runnign http://localhost:${PORT}`);
