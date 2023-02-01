@@ -6,19 +6,21 @@ import CssBaseline from "@mui/material/CssBaseline";
 import Divider from "@mui/material/Divider";
 import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
 import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
-import MailIcon from "@mui/icons-material/Mail";
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import { Navigate } from "react-router-dom";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import HomeIcon from "@mui/icons-material/Home";
+import CategoryIcon from "@mui/icons-material/Category";
+import { Routes, Route } from "react-router-dom";
+import Users from "./Users";
+import Product from "./Product";
+import CreatNewUser from "../components/CreatNewUser";
 
-const drawerWidth = 240;
+const drawerWidth = 250;
 
 function ResponsiveDrawer(props) {
   const { window } = props;
@@ -33,30 +35,40 @@ function ResponsiveDrawer(props) {
       <Toolbar />
       <Divider />
       <List>
-        {["USER", "Starred", "Send email", "Drafts"].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton onClick={<Navigate to={"users"} name={"USER"} />}>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
+        <ListItemButton to={"/"}>
+          <ListItemIcon>
+            <HomeIcon
+              sx={{
+                marginRight: 5,
+              }}
+            />
+            Home
+          </ListItemIcon>
+        </ListItemButton>
+
+        <ListItemButton to={"/users"}>
+          <ListItemIcon>
+            <AccountCircleIcon
+              sx={{
+                marginRight: 5,
+              }}
+            />
+            User
+          </ListItemIcon>
+        </ListItemButton>
+
+        <ListItemButton to={"/product"}>
+          <ListItemIcon>
+            <CategoryIcon
+              sx={{
+                marginRight: 5,
+              }}
+            />
+            Product
+          </ListItemIcon>
+        </ListItemButton>
       </List>
       <Divider />
-      <List>
-        {["All mail", "Trash", "Spam"].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
     </div>
   );
 
@@ -64,7 +76,7 @@ function ResponsiveDrawer(props) {
     window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <Box sx={{ display: "flex" }}>
+    <Box sx={{ display: "flex", marginTop: 2 }}>
       <CssBaseline />
       <AppBar
         position="fixed"
@@ -84,7 +96,7 @@ function ResponsiveDrawer(props) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-            Responsive drawer
+            ADMIN PANEL
           </Typography>
         </Toolbar>
       </AppBar>
@@ -130,11 +142,16 @@ function ResponsiveDrawer(props) {
         component="main"
         sx={{
           flexGrow: 1,
-          p: 3,
+          // p: 1,
           width: { sm: `calc(100% - ${drawerWidth}px)` },
         }}
       >
         <Toolbar />
+        <Routes>
+          <Route path="/users" element={<Users />} />
+          <Route path="/product" element={<Product />} />
+          <Route path="/creatNewUser" element={<CreatNewUser />} />
+        </Routes>
       </Box>
     </Box>
   );
