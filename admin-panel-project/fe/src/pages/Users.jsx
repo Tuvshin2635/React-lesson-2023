@@ -14,7 +14,6 @@ export default function Users() {
   return (
     <div>
       <UsersTable />
-
       <Button variant="outlined" color="success">
         <ListItemButton to={"/CreatNewUser"}>REGISTER</ListItemButton>
       </Button>

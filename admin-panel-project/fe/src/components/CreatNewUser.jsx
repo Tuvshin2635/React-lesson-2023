@@ -27,22 +27,23 @@ export default function CreatNewUser() {
   }
 
   async function handleSubmit(e) {
-    //2nd shag
     e.preventDefault();
-
-    const postData = {
-      username: e.target.username.value,
+    const postUserData = {
+      firstname: e.target.firstname.value,
+      lastname: e.target.lastname.value,
       age: e.target.age.value,
+      password: e.target.password.value,
     };
+    console.log("data", postUserData);
+
     const options = {
       method: "POST",
-      headers: {
-        "Content-type": "application/json",
+      hearders: {
+        "Context-Type": "application/json",
       },
-      body: JSON.stringify(postData), //3tei shag damjuulax part
+      body: JSON.stringify(postUserData),
     };
-
-    const FETCHED_DATA = await fetch(URL, options); //4tii shag
+    const FETCHED_DATA = await fetch(URL, options);
     const FETCHED_JSON = await FETCHED_DATA.json();
     setUsers(FETCHED_JSON.data);
   }
@@ -57,6 +58,7 @@ export default function CreatNewUser() {
             flexDirection: "column",
             gap: 3,
             width: 1000,
+            marginLeft: 40,
           }}
         >
           <TextField

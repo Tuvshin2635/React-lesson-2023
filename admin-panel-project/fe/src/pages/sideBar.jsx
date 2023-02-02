@@ -22,7 +22,7 @@ import CreatNewUser from "../components/CreatNewUser";
 
 const drawerWidth = 250;
 
-function ResponsiveDrawer(props) {
+function SideBar(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -142,7 +142,6 @@ function ResponsiveDrawer(props) {
         component="main"
         sx={{
           flexGrow: 1,
-          // p: 1,
           width: { sm: `calc(100% - ${drawerWidth}px)` },
         }}
       >
@@ -157,12 +156,8 @@ function ResponsiveDrawer(props) {
   );
 }
 
-ResponsiveDrawer.propTypes = {
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
+SideBar.propTypes = {
   window: PropTypes.func,
 };
 
-export default ResponsiveDrawer;
+export default SideBar;

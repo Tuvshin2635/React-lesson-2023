@@ -15,6 +15,7 @@ app.use(cors());
 app.use(express());
 
 app.get("/users", (request, response) => {
+  //frontdeer gargana
   fs.readFile("./data/users.json", "utf-8", (readError, readData) => {
     if (readError) {
       response.json({
