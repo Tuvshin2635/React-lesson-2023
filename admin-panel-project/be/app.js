@@ -5,6 +5,7 @@ const cors = require("cors");
 const fs = require("fs");
 
 const { get, request } = require("http");
+const { response } = require("express");
 
 /// configuration of moduls
 
@@ -29,6 +30,20 @@ app.get("/users", (request, response) => {
       data: objectData,
     });
   });
+});
+
+app.post("/products", (request, response) => {
+  //create new
+  const body = request.body;
+
+  const newUser = {
+    id: Data.now().toString(),
+    firstname: body.firstname,
+    lastname: body.lastname,
+    age: body.age,
+    password: body.password,
+  };
+  fs.readFile("/.");
 });
 
 app.listen(PORT, () => {
