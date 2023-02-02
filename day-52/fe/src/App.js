@@ -1,6 +1,8 @@
 import logo from "./logo.svg";
 import "./App.css";
 import { useEffect, useState } from "react";
+import { createUser, fetchAllData } from "./services/usersServices";
+import { deleteUser, updateUser } from "./services/axiosUsersServices";
 
 function App() {
   const URL = "http://localhost:8080/users"; //5tii shag
@@ -15,29 +17,11 @@ function App() {
   const [currentUser, setCurrentUser] = useState(newUser);
 
   useEffect(() => {
-    fetchAllData();
+    fetchAllData(URL, setUsers);
   }, []);
 
-  async function fetchAllData() {
-    // fetch a data form localhost8080/users
-    const FETCHED_DATA = await fetch(URL); //response
-    const FETCHED_JSON = await FETCHED_DATA.json(); //{status:succes data: [{}]}
-    setUsers(FETCHED_JSON.data);
-  }
-
   async function handleDelete(userId) {
-    const options = {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        userId: userId,
-      }),
-    };
-    const FETCHED_DATA = await fetch(URL, options); //4tii shag
-    const FETCHED_JSON = await FETCHED_DATA.json();
-    setUsers(FETCHED_JSON.data);
+    deleteUser(userId, URL, setUsers);
   }
 
   async function handleSubmit(e) {
@@ -45,39 +29,16 @@ function App() {
     e.preventDefault();
 
     if (!isUpdate) {
-      const postData = {
-        username: e.target.username.value,
-        age: e.target.age.value,
-      };
-      const options = {
-        method: "POST",
-        headers: {
-          "Content-type": "application/json",
-        },
-        body: JSON.stringify(postData), //3tei shag damjuulax part
-      };
-
-      const FETCHED_DATA = await fetch(URL, options); //4tii shag
-      const FETCHED_JSON = await FETCHED_DATA.json();
-      setUsers(FETCHED_JSON.data);
+      createUser(
+        currentUser,
+        URL,
+        setUsers,
+        setIsUpdate,
+        setCurrentUser,
+        newUser
+      );
     } else {
-      const putData = {
-        id: currentUser.id,
-        username: currentUser.username,
-        age: currentUser.age,
-      };
-      const options = {
-        method: "PUT",
-        headers: {
-          "Content-type": "application/json",
-        },
-        body: JSON.stringify(putData), //3tei shag damjuulax part
-      };
-      const FETCHED_DATA = await fetch(URL, options); //4tii shag
-      const FETCHED_JSON = await FETCHED_DATA.json();
-      setUsers(FETCHED_JSON.data);
-      setIsUpdate(false);
-      setCurrentUser(newUser);
+      updateUser(e, URL, setUsers);
     }
   }
 
