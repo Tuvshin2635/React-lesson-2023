@@ -96,14 +96,7 @@ function SideBar(props) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography
-            // backgroundColor="#fff176"
-            // color="red"
-            variant="h6"
-            noWrap
-            component="div"
-            color="primary"
-          >
+          <Typography variant="h6" noWrap component="div" color="primary">
             ADMIN PANEL
           </Typography>
         </Toolbar>

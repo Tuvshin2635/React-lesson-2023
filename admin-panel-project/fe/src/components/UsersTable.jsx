@@ -80,7 +80,6 @@ export default function UsersTable() {
                 color="error"
                 onClick={() => {
                   handleDelete(params.row.id);
-                  // console.log(params.row.id);
                 }}
               >
                 Delete
@@ -94,11 +93,11 @@ export default function UsersTable() {
   return (
     <Box
       style={{
-        // marginLeft: -80,
+        marginLeft: -80,
         // paddingRight: 100,
-        marginTop: 10,
+        // marginTop: 10,
         height: 400,
-        width: "100%",
+        // width: "100%",
       }}
     >
       {users && (

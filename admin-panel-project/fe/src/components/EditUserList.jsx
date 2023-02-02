@@ -1,11 +1,11 @@
 import { Box, Button, makeStyles, TextField } from "@mui/material";
 import React from "react";
 
-const styles = makeStyles() {
-    btn: {
-        marginLeft :40,
-    }
-}
+// const styles = makeStyles() {
+//     btn: {
+//         marginLeft :40,
+//     }
+// }
 
 export default function EditUserList() {
   return (
@@ -13,7 +13,7 @@ export default function EditUserList() {
       <form
       //   onSubmit={handleSubmit}
       >
-        <h3> Registration form </h3>
+        <h3> EDIT form </h3>
         <Box
           sx={{
             display: "flex",
