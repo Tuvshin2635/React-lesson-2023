@@ -5,15 +5,7 @@ import Button from "@mui/material/Button";
 export default function CreatNewUser() {
   const URL = "http://localhost:8080/users";
 
-  // const newUser = {
-  //   firstname: "",
-  //   lastname: "",
-  //   age: "",
-  //   password: "",
-  // };
-
   const [users, setUsers] = useState([]);
-  // const [currentUser, setCurrentUser] = useState(newUser);
 
   useEffect(() => {
     fetchAllData();
@@ -31,6 +23,7 @@ export default function CreatNewUser() {
       firstname: e.target.firstname.value,
       lastname: e.target.lastname.value,
       age: e.target.age.value,
+      email: e.target.email.value,
       password: e.target.password.value,
     };
     console.log("data", postUserData);
@@ -80,6 +73,12 @@ export default function CreatNewUser() {
             id="outlined-basic"
             label="Age"
             // value={age}
+            variant="outlined"
+          />
+          <TextField
+            name="email"
+            id="outlined-basic"
+            label="email"
             variant="outlined"
           />
           <TextField

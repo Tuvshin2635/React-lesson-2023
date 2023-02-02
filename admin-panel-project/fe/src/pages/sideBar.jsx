@@ -19,6 +19,7 @@ import { Routes, Route } from "react-router-dom";
 import Users from "./Users";
 import Product from "./Product";
 import CreatNewUser from "../components/CreatNewUser";
+import EditUserList from "../components/EditUserList";
 
 const drawerWidth = 250;
 
@@ -95,7 +96,14 @@ function SideBar(props) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div">
+          <Typography
+            // backgroundColor="#fff176"
+            // color="red"
+            variant="h6"
+            noWrap
+            component="div"
+            color="primary"
+          >
             ADMIN PANEL
           </Typography>
         </Toolbar>
@@ -105,7 +113,6 @@ function SideBar(props) {
         sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
         aria-label="mailbox folders"
       >
-        {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
         <Drawer
           container={container}
           variant="temporary"
@@ -150,6 +157,7 @@ function SideBar(props) {
           <Route path="/users" element={<Users />} />
           <Route path="/product" element={<Product />} />
           <Route path="/creatNewUser" element={<CreatNewUser />} />
+          <Route path="/editUserList" element={<EditUserList />} />
         </Routes>
       </Box>
     </Box>

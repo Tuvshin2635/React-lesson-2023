@@ -1,20 +1,27 @@
 import "./App.css";
 import SideBar from "./pages/sideBar";
 
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
+import { Container } from "@mui/material";
+
+const darkTheme = createTheme({
+  palette: {
+    mode: "dark",
+  },
+});
+
 function App() {
   return (
-    <div className="App">
-      {/* <h1> ADMIN PANEL PROJECT MT </h1> */}
-      <SideBar />
-      {/* <UsersTable /> */}
-      {/* <CreatNewUser /> */}
+    <Container>
+      <ThemeProvider theme={darkTheme}>
+        <div className="App">
+          <CssBaseline />
 
-      {/* <Routes>
-        <Route path="/users" element={<Users />} />
-        <Route path="/product" element={<Product />} />
-        <Route path="/creatNewUser" element={<CreatNewUser />} />
-      </Routes> */}
-    </div>
+          <SideBar />
+        </div>
+      </ThemeProvider>
+    </Container>
   );
 }
 

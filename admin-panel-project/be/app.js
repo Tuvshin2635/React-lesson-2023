@@ -35,6 +35,7 @@ app.post("/users", (request, response) => {
     firstname: body.firstname,
     lastname: body.lastname,
     age: body.age,
+    email: body.email,
     password: body.password,
   };
 
@@ -70,6 +71,39 @@ app.post("/users", (request, response) => {
       }
     );
     // console.log(dataObject);
+  });
+});
+
+app.delete("/users", (request, response) => {
+  const body = request.body;
+
+  fs.readFile("./data/users.json", "utf-8", (readError, readData) => {
+    if (readError) {
+      response.json({
+        status: "file reader error",
+        data: [],
+      });
+    }
+
+    const readObject = JSON.parse(readData);
+    const filteredObject = readObject.filter((o) => o.id !== body.userId);
+
+    fs.writeFile(
+      "./data/users.json",
+      JSON.stringify(filteredObject),
+      (writeError) => {
+        if (writeError) {
+          response.json({
+            status: "write file error",
+            data: [],
+          });
+        }
+        response.json({
+          status: "success",
+          data: filteredObject,
+        });
+      }
+    );
   });
 });
 
