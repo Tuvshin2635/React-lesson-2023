@@ -7,13 +7,36 @@ import React from "react";
 //     }
 // }
 
-export default function EditUserList() {
+export default function EditUserList(setData, setCurrentData, CurrentData) {
+  const UPDATE_URL = "http://localhost:8080/data";
+
+  // async function sendPutRequist(data) {
+  //   const options = {
+  //     method: "PUT",
+  //     Headers: {
+  //       "Content-Type": "applicatoin/json",
+  //     },
+  //     body: JSON.stringify(data),
+  //   };
+  //   const FETCHED_DATA = await fetch(UPDATE_URL, options);
+  //   const FETCHED_JSON = await FETCHED_DATA.json();
+  //   console.log(FETCHED_JSON);
+  //   setData(FETCHED_JSON);
+  // }
+
+  // function handleSubmit(e) {
+  //   e.preventDefault();
+  //   const sendData = {
+
+  //   }
+  // }
+
   return (
     <div>
       <form
-      //   onSubmit={handleSubmit}
+      // onSubmit={handleSubmit
       >
-        <h3> EDIT form </h3>
+        <h3> EDIT FORM </h3>
         <Box
           sx={{
             display: "flex",
