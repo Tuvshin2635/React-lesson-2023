@@ -1,11 +1,26 @@
 import { Box, TextField } from "@mui/material";
 import React, { useState, useEffect } from "react";
 import Button from "@mui/material/Button";
+import MuiAlert from "@mui/material/Alert";
+import { Snackbar } from "@mui/material";
+
+const Alert = React.forwardRef(function Alert(props, ref) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
 
 export default function CreatNewUser() {
   const URL = "http://localhost:8080/users";
 
   const [users, setUsers] = useState([]);
+  const [open, setOpen] = React.useState(false);
+
+  function handleClose(event, reason) {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setOpen(true);
+  }
 
   useEffect(() => {
     fetchAllData();
@@ -88,9 +103,20 @@ export default function CreatNewUser() {
             // value={password}
             variant="outlined"
           />
-          <Button type="submit" variant="contained" color="success">
+          <Button
+            onClick={handleClose}
+            type="submit"
+            variant="contained"
+            color="success"
+          >
             Success
           </Button>
+
+          <Snackbar open={open} autoHideDuration={1000} onClose={handleClose}>
+            <Alert severity="success" sx={{ width: "100%" }}>
+              Added new user !
+            </Alert>
+          </Snackbar>
         </Box>
       </form>
     </div>

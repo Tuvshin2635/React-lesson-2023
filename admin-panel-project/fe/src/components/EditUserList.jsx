@@ -1,35 +1,41 @@
 import { Box, Button, makeStyles, TextField } from "@mui/material";
 import React from "react";
-
-// const styles = makeStyles() {
-//     btn: {
-//         marginLeft :40,
-//     }
-// }
+import { useState } from "react";
 
 export default function EditUserList(setData, setCurrentData, CurrentData) {
   const UPDATE_URL = "http://localhost:8080/data";
 
-  // async function sendPutRequist(data) {
-  //   const options = {
-  //     method: "PUT",
-  //     Headers: {
-  //       "Content-Type": "applicatoin/json",
-  //     },
-  //     body: JSON.stringify(data),
-  //   };
-  //   const FETCHED_DATA = await fetch(UPDATE_URL, options);
-  //   const FETCHED_JSON = await FETCHED_DATA.json();
-  //   console.log(FETCHED_JSON);
-  //   setData(FETCHED_JSON);
-  // }
+  const [currentUser, setCurrentUser] = useState();
 
-  // function handleSubmit(e) {
-  //   e.preventDefault();
-  //   const sendData = {
+  async function sendPutRequist(data) {
+    const options = {
+      method: "PUT",
+      Headers: {
+        "Content-Type": "applicatoin/json",
+      },
+      body: JSON.stringify(data),
+    };
+    const FETCHED_DATA = await fetch(UPDATE_URL, options);
+    const FETCHED_JSON = await FETCHED_DATA.json();
+    console.log(FETCHED_JSON);
+    setData(FETCHED_JSON);
+  }
 
-  //   }
-  // }
+  function handleSubmit(e) {
+    e.preventDefault();
+    console.log(currentUser.target.name.value);
+
+    const sendData = {
+      firstname: currentUser.target.firstname.value,
+      lastname: currentUser.target.lastname.value,
+      age: currentUser.target.age.value,
+      email: currentUser.target.email.value,
+    };
+    sendPutRequist(sendData);
+  }
+  function handleTitle(e) {
+    setCurrentUser({ ...currentUser, title: e.target.firstname.value });
+  }
 
   return (
     <div>
@@ -51,6 +57,7 @@ export default function EditUserList(setData, setCurrentData, CurrentData) {
             id="outlined-basic"
             label="First Name"
             variant="outlined"
+            onChange={handleTitle}
           />
           <TextField
             name="lastname"

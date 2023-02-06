@@ -8,7 +8,7 @@ export default function UsersTable() {
   const URL = "http://localhost:8080/users";
   const [users, setUsers] = useState([]);
 
-  const [currentUser, setCurrentUser] = useState(newUser);
+  // const [currentUser, setCurrentUser] = useState(newUser);
 
   useEffect(() => {
     fetchAllData();
