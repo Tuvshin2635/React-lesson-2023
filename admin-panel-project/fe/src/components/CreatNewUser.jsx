@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import Button from "@mui/material/Button";
 import MuiAlert from "@mui/material/Alert";
 import { Snackbar } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
@@ -13,6 +14,7 @@ export default function CreatNewUser() {
 
   const [users, setUsers] = useState([]);
   const [open, setOpen] = React.useState(false);
+  const navigate = useNavigate();
 
   function handleClose(event, reason) {
     if (reason === "clickaway") {
@@ -30,6 +32,7 @@ export default function CreatNewUser() {
     const FETCHED_DATA = await fetch(URL);
     const FETCHED_JSON = await FETCHED_DATA.json();
     setUsers(FETCHED_JSON.data);
+    // navigate("/users");
   }
 
   async function handleSubmit(e) {

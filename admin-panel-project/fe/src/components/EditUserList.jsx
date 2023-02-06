@@ -1,11 +1,13 @@
 import { Box, Button, makeStyles, TextField } from "@mui/material";
 import React from "react";
 import { useState } from "react";
+// import { useNavigate } from "react-router-dom";
 
 export default function EditUserList(setData, setCurrentData, CurrentData) {
   const UPDATE_URL = "http://localhost:8080/data";
 
   const [currentUser, setCurrentUser] = useState();
+  // const navigate = useNavigate();
 
   async function sendPutRequist(data) {
     const options = {
@@ -19,6 +21,7 @@ export default function EditUserList(setData, setCurrentData, CurrentData) {
     const FETCHED_JSON = await FETCHED_DATA.json();
     console.log(FETCHED_JSON);
     setData(FETCHED_JSON);
+    // navigate("/users");
   }
 
   function handleSubmit(e) {
