@@ -1,8 +1,12 @@
-import { useContext } from "react";
+// import { useContext } from "react";
 import "./App.css";
-import List from "./components/List";
-import Stopwatch from "./components/StopWatch";
-import { ImageContext } from "./context/ImageContext";
+import VideoPlayer from "./components/VideoPlayer";
+// import InputFocus from "./components/InputFocus";
+
+// import List from "./components/List";
+// import Stopwatch from "./components/StopWatch";
+
+// import { ImageContext } from "./context/ImageContext";
 
 function App() {
   // const [isLarge, setIsLarge] = useState(false);
@@ -13,7 +17,11 @@ function App() {
   return (
     <div className="App">
       <h1> DAY 58 useREF</h1>
-      <Stopwatch />
+
+      <VideoPlayer />
+      {/* <InputFocus /> */}
+
+      {/* <Stopwatch /> */}
 
       {/* <label>
         Use large Images
