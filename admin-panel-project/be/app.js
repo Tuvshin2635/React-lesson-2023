@@ -108,45 +108,45 @@ app.delete("/users", (request, response) => {
 });
 
 //put app.js bolson ediduserlistdeer handle dutuu
-app.put("/users", (request, response) => {
-  console.log(request.body);
+// app.put("/users", (request, response) => {
+//   console.log(request.body);
 
-  fs.readFile("./data/users.json", "utf-8", (readError, readData) => {
-    if (readError) {
-      response.json({
-        status: "file read error",
-        data: [],
-      });
-    }
-    const savedData = JSON.parse(readData);
-    const changedData = savedData.map((d) => {
-      if (d.id === request.body.id) {
-        (d.firstname = request.body.firstname),
-          (d.lastname = request.body.lastname),
-          (d.age = request.body.age);
-        d.email = request.body.email;
-      }
-      return d;
-    });
+//   fs.readFile("./data/users.json", "utf-8", (readError, readData) => {
+//     if (readError) {
+//       response.json({
+//         status: "file read error",
+//         data: [],
+//       });
+//     }
+//     const savedData = JSON.parse(readData);
+//     const changedData = savedData.map((d) => {
+//       if (d.id === request.body.id) {
+//         (d.firstname = request.body.firstname),
+//           (d.lastname = request.body.lastname),
+//           (d.age = request.body.age);
+//         d.email = request.body.email;
+//       }
+//       return d;
+//     });
 
-    fs.writeFile(
-      "./data/users.json",
-      JSON.stringify(changedData),
-      (writeError) => {
-        if (writeError) {
-          response.json({
-            status: "file write error",
-            data: [],
-          });
-        }
-        response.json({
-          status: "success",
-          data: changedData,
-        });
-      }
-    );
-  });
-});
+//     fs.writeFile(
+//       "./data/users.json",
+//       JSON.stringify(changedData),
+//       (writeError) => {
+//         if (writeError) {
+//           response.json({
+//             status: "file write error",
+//             data: [],
+//           });
+//         }
+//         response.json({
+//           status: "success",
+//           data: changedData,
+//         });
+//       }
+//     );
+//   });
+// });
 
 app.listen(PORT, () => {
   console.log(`server is running on http://localhost:${PORT}`);

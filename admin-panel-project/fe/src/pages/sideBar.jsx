@@ -20,6 +20,7 @@ import Users from "./Users";
 import Product from "./Product";
 import CreatNewUser from "../components/CreatNewUser";
 import EditUserList from "../components/EditUserList";
+import VideoPlayer from "../components/VideoPlayer";
 
 const drawerWidth = 250;
 
@@ -147,6 +148,7 @@ function SideBar(props) {
       >
         <Toolbar />
         <Routes>
+          <Route path="/" element={<VideoPlayer />} />
           <Route path="/users" element={<Users />} />
           <Route path="/product" element={<Product />} />
           <Route path="/creatNewUser" element={<CreatNewUser />} />
