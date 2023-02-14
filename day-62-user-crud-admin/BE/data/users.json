@@ -1,0 +1,10 @@
+[
+  {
+    "firstname": "11",
+    "lastname": "22",
+    "email": "munkhtvhsi@t454.com",
+    "password": "",
+    "address": "",
+    "role": { "id": 1, "name": "Admin" }
+  }
+]
