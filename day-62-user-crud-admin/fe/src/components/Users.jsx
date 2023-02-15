@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Grid } from "@mui/material";
 
 export default function Users() {
-  const URL = "http://localhost:8080/users";
+  const URL = "http://localhost:8081/users";
   const [users, setUsers] = useState([]);
 
   async function fetchUsers() {

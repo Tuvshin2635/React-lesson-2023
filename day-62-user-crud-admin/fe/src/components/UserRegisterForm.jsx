@@ -5,8 +5,8 @@ import { Select, MenuItem } from "@mui/material";
 import { useEffect } from "react";
 
 export default function UserRegisterForm() {
-  const URL = "http://localhost:8080/register";
-  const ROLE_URL = "http://localhost:8080/users/roles";
+  const URL = "http://localhost:8081/register";
+  const ROLE_URL = "http://localhost:8081/users/roles";
 
   const [roles, setRoles] = useState([]);
   const [currentRole, setCurrentRole] = useState(0);
@@ -136,6 +136,7 @@ export default function UserRegisterForm() {
             SUBMIT
           </Button>
         </Grid>
+        <Button to={"/"}> HOME </Button>
       </form>
     </div>
   );

@@ -1,10 +1,1 @@
-[
-  {
-    "firstname": "11",
-    "lastname": "22",
-    "email": "munkhtvhsi@t454.com",
-    "password": "",
-    "address": "",
-    "role": { "id": 1, "name": "Admin" }
-  }
-]
+[{"lastName":"TUVSHIN","email":"tsas@gmail.com","password":"$2b$10$QwpttRkQTPrqOACTB8igk.YWJrNjn57cvAQV0Jr8y7hXgQHXb0yqi","address":"bayangol","role":{"id":1,"name":"Admin"}},{"lastName":"TUVSHIN","email":"tsas@gmail.com","password":"$2b$10$BKoUfomdfVxeoMK.ei1dVOi16FJvVyWVgm8aQ/pzPtzt6Sw7VR7V2","address":"1111","role":{"id":2,"name":"User"}}]
