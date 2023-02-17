@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 
 export default function CategoryForm() {
-  const URL = "http://localhost:8081/category";
+  const URL = "http://localhost:8080/category";
   const navigate = useNavigate();
 
   async function handleCategorySubmit(e) {
@@ -12,7 +12,8 @@ export default function CategoryForm() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        catName: e.target.catName.value,
+        categoryName: e.target.catName.value,
+        isEdit: false,
       }),
     };
 
