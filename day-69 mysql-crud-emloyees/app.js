@@ -14,15 +14,6 @@ app.get("/", (require, response) => {
   );
 });
 
-// app.get("/employees", async (requist, response) => {
-//   const result = getEmployees();
-//   console.log(result);
-//   response.json({
-//     status: "success1",
-//     data: result,
-//   });
-// });
-
 app.listen(PORT, () => {
   console.log(`express is running http://localhost:${PORT}`);
 });
