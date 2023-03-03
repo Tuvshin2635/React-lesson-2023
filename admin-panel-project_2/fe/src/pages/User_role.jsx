@@ -41,7 +41,7 @@ export default function User_role() {
             />
             <FormControl>
               <FormLabel id="demo-radio-buttons-group-label">
-                User Role{" "}
+                User Role
               </FormLabel>
               <RadioGroup
                 aria-labelledby="demo-radio-buttons-group-label"
