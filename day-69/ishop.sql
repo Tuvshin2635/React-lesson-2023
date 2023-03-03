@@ -29,6 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `product` (
   `product_id` int(11) NOT NULL,
+  `product_id_2` int(11) NOT NULL,
   `product_name` varchar(255) NOT NULL,
   `product_description` text DEFAULT NULL,
   `product_price` int(11) NOT NULL,
