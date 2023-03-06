@@ -8,6 +8,10 @@ const PORT = 8080;
 app.use(express.json());
 app.use(user_role_router);
 
+app.get("./user_role", (request, response) => {
+  request.send("hi");
+});
+
 // app.get("/users", (request, response) => {
 //   fs.readFile("./data/users.json", "utf-8", (readError, readData) => {
 //     if (readError) {
