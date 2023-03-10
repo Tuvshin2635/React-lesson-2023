@@ -7,13 +7,27 @@ import {
   updateEmployee,
 } from "../services/employees-services.js";
 
+import { search, getAllProducts } from "../services/product-services.js";
+
 import { getPopularCategories } from "../services/category-services.js";
 import {
   getChildrenMenus,
   getParentMenus,
 } from "../services/menus-services.js";
 
+api_router.get("/products", async (request, response) => {
+  const result = await getAllProducts();
+  response.status(200).send(result);
+});
+
+api_router.get("/search", async (request, response) => {
+  const keyword = request.query.keyword;
+  const result = await search(keyword);
+  response.status(200).send(result);
+});
+
 api_router.get("/employees", async (request, response) => {
+  // const keyword = request.query.keyword;
   const result = await getEmployees();
   console.log(result);
   response.status(200).send(result);
