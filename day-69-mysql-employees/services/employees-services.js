@@ -11,7 +11,7 @@ export async function getMaxNo() {
   return rows[0];
 }
 
-export async function hireEmployee(
+export async function hireEmployees(
   empNo,
   birthDate,
   firstName,
@@ -19,8 +19,8 @@ export async function hireEmployee(
   gender,
   hireDate
 ) {
-  // const query = `insert inot employees values (${empNo}, ${}'1990-01-01', 'Jhon', 'Mc', 'M', '2010-01-01')`;
-  const query = `insert into employees values(?,?,?,?,?,?)`;
+  // INSERT INTO employees VALUES(@max_emp_id + 1, '1990-01-01', 'John', 'McKay', 'M' , '2010-01-01');
+  const query = `INSERT INTO employees VALUES(?, ?, ?, ?, ?, ?)`;
   const [rows] = await pool.query(query, [
     empNo,
     birthDate,
@@ -32,13 +32,14 @@ export async function hireEmployee(
   return rows;
 }
 
-export async function updateEmployee(empNo, lastName, gender) {
-  const query = `update employees set last_name=?, gender=? where emp_no = ?`;
-  const [rows] = await pool.query(query, [lastName, gender, empNo]);
-  return rows[0];
+export async function updateEmployee(empNo, firstName, lastName, gender) {
+  const query = `UPDATE employees SET first_name="${firstName}", last_name="${lastName}", gender="${gender}" WHERE emp_no = ${empNo}`;
+  const [rows] = await pool.query(query);
+
+  return rows;
 }
 
-export async function fireEmployee(empNo) {
+export async function fireEmployees(empNo) {
   const query = `DELETE FROM employees WHERE emp_no = ${empNo}`;
   const [rows] = await pool.query(query);
 
