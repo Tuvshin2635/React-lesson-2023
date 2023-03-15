@@ -34,11 +34,9 @@ function App() {
           <Route path="/about/*" element={<About />}>
             <Route path="tuvshee" element={<Tuvshee />} />
             <Route path="register" element={<Register />} />
-
           </Route>
           <Route path="/login" element={<Login />} />
           <Route path="/regsiter" element={<Register />} />
-
         </Routes>
       </div>
     </div>

@@ -2,18 +2,16 @@ import logo from "./logo.svg";
 import "./App.css";
 import { useState } from "react";
 
-
 function App() {
   const [users, setUsers] = useState([]);
 
-  
   function handleRegister(event) {
     event.preventDefault();
     // console.log(event.target.firstname.value);
     // console.log(event.target.password.value);
     // console.log(event.target.lastname.value);
     // console.log(users);
-    
+
     const user = {
       firstname: event.target.firstname.value,
       lastname: event.target.lastname.value,
@@ -42,6 +40,7 @@ function App() {
           <div>
             <div>{u.firstname}</div>
             <div>{u.lastname}</div>
+            <div>{u.password}</div>
           </div>
         );
       })}

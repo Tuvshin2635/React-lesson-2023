@@ -1,0 +1,27 @@
+GET http://localhost:8080/users HTTP/1.1
+Content-Type: application/json
+
+###
+
+POST http://localhost:8080/user HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "Tuvshin",
+    "email": "twgi@gmail.com",
+    "createdOn" : "2023-03-15"
+}
+
+
+###
+
+
+DELETE  http://localhost:8080/user HTTP/1.1
+Content-Type: application/json
+
+{
+    "id": "6411477fed3c10564ff81351"
+}
+
+
+###
