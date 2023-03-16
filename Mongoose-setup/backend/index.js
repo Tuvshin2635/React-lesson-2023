@@ -6,7 +6,7 @@ const apiRouter = require("./routes/api");
 
 const PORT = 8080;
 const MONGO_CONNECTION_STRING =
-  "mongodb+srv://blacktuvshin:2aDuw47HMZgyU6Z1@cluster0.no2ps4z.mongodb.net/test";
+  "mongodb+srv://blacktuvshin:89bOVGHyXP75aPsl@cluster0.no2ps4z.mongodb.net/test";
 
 mongoose
   .connect(MONGO_CONNECTION_STRING)
