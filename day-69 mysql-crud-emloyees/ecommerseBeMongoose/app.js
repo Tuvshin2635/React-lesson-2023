@@ -7,9 +7,12 @@ const PORT = 8080;
 const MONGODB_CONNECTION_STRING =
   "mongodb+srv://blacktuvshin:89bOVGHyXP75aPsl@cluster0.no2ps4z.mongodb.net/test";
 
+const adminApi = require("./routes/admin-api");
+
 app.use(cors());
 app.use(express.json());
 app.use("/menu", menuApi);
+app.use("/admin", adminApi);
 
 app.listen(PORT, () => {
   mongoose
