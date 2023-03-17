@@ -3,7 +3,7 @@ const menuApi = require("./routes/menu-api");
 const express = require("express");
 const cors = require("cors");
 const app = express();
-const PORT = 8080;
+const PORT = 8081;
 const MONGODB_CONNECTION_STRING =
   "mongodb+srv://blacktuvshin:89bOVGHyXP75aPsl@cluster0.no2ps4z.mongodb.net/test";
 
