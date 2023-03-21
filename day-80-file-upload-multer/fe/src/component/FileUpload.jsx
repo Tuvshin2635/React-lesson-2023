@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import "../App.css";
 
 export default function FileUpload() {
   const URL = "http://localhost:8081/fileUpload";
+
+  const [imagesUrl, setImagesUrl] = useState([]);
 
   const handleFileUpload = async (event) => {
     event.preventDefault();
@@ -37,6 +39,10 @@ export default function FileUpload() {
         <input></input>
         <button> SUBMIT </button>
       </form>
+      {imagesUrl.map((img) => (
+        <img src="{img}" alt="img" />
+      ))}
+      {/* <img src="http://localhost:8081/uploads/1.png" alt="" /> */}
     </div>
   );
 }

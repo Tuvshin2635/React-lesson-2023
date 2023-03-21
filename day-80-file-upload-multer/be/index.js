@@ -1,43 +1,50 @@
+console.log("Day 80 - File Upload Multer");
+
 const express = require("express");
 const cors = require("cors");
 const multer = require("multer");
-const { response, request } = require("express");
-
-const storage = multer.diskStorage({
-  destination: (request, file, cd) => {
-    cd(null, "./uploads");
-  },
-  filename: (request, file, cb) => {
-    cb(null, file.originalname);
-  },
-});
-
-const upload = multer({ storage: storage });
+const fs = require("fs");
 
 const app = express();
-const PORT = 8081;
-
-// const upload = multer({ desc: ".uploads/" });
-
-app.use(cors());
-app.use(express.json());
+const PORT = 8080;
+const upload = multer({ storage: storage });
 app.use("/uploads", express.static("uploads"));
 
-app.get("/", (request, response) => {
-  response.send("<h1> DAY-80 File upload Multer</h1>");
+app.use(express.json());
+app.use(cors());
+
+app.get("/files", async (request, response) => {
+  const testFolder = "./uploads/";
+  const imgs = [];
+
+  fs.readdirSync(testFolder).forEach((file) => {
+    console.log(file);
+    const imgURl = `http://localhost:8080/uploads/${file}`;
+    imgs.push(imgURl);
+  });
+
+  response.status(200).json({
+    data: imgs,
+  });
 });
 
-app.post(
-  "/fileUpload",
-  upload.single("image"),
-  function (request, response, next) {
-    console.log(request.file);
-    response.json({
-      data: [],
-    });
-  }
-);
+app.get("/", (request, response) => {
+  response.send("<h1>Day - 80: Hello File Upload Multer</h1>");
+});
 
-app.listen(PORT, (error) => {
-  console.log(`server is running on http://localhost:${PORT}`);
+app.post("/fileUpload", upload.single("image"), (request, response, next) => {
+  // console.log(request.file);
+  const imgs = [];
+  fs.readdirSync("./uploads/").forEach((file) => {
+    console.log(file);
+    const fileUrl = `http://localhost:8080/uploads/${file}`;
+    imgs.push(fileUrl);
+  });
+  response.json({
+    data: imgs,
+  });
+});
+
+app.listen(PORT, () => {
+  console.log(`Express is running on listening on http://localhost:${PORT}`);
 });
