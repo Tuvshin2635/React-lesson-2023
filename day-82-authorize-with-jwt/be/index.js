@@ -6,8 +6,7 @@ const { default: mongoose } = require("mongoose");
 const adminRouter = require("./Router/admin-api");
 const Router = require("./Router/api");
 const MONGO_CONNECTION_STRING =
-  "mongodb+srv://blacktuvshin:ofJXMzn4j5wRLC15@cluster0.no2ps4z.mongodb.net/test";
-
+  "mongodb+srv://blacktuvshin:WWQm9ZbriN8y9udr@cluster0.no2ps4z.mongodb.net/test";
 const app = express();
 const PORT = 8080;
 
