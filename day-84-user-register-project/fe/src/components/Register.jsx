@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 
 function Register() {
-  const ROLE_URL = "http://localhost:8081/admin/role/list";
-  const REGISTER_URL = "http://localhost:8081/admin/register";
+  const ROLE_URL = "http://localhost:8080/admin/role/list";
+  const REGISTER_URL = "http://localhost:8080/admin/register";
 
   const initialFormData = Object.freeze({
     firstname: "",
