@@ -2,7 +2,11 @@ POST http://localhost:8080/unprotected HTTP/1.1
 Content-Type: application/json
 
 {
+<<<<<<< HEAD
     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQxYWVmZWE4MmY1MTljZmJkYmU5ZGQ4IiwiZW1haWwiOiJ0d2dpMjJAZ21haWwuY29tIiwiaWF0IjoxNjc5NDg2OTg1LCJleHAiOjE2Nzk1NzMzODV9.86LfAvajjnawqK8B1RYJ0djhTeerisoS_qYHSqGEnmo"
+=======
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQxYjljNDJiZjFmODFlNzE0MzA2ZTFiIiwiZW1haWwiOiJ0d2dpMjIyM0BnbWFpbC5jb20iLCJpYXQiOjE2Nzk1MzExMDAsImV4cCI6MTY3OTYxNzUwMH0.w5H-pIXfoexb7vKxyDPKXdVhBFqUnaJGTky3G10BrJU"
+>>>>>>> 682ba961db1cc7c3c615d5d80c27a818f61209bd
 }
 
 ###
@@ -12,7 +16,11 @@ POST http://localhost:8080/protected HTTP/1.1
 Content-Type: application/json
 
 {
+<<<<<<< HEAD
     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQxYWVmZWE4MmY1MTljZmJkYmU5ZGQ4IiwiZW1haWwiOiJ0d2dpMjJAZ21haWwuY29tIiwiaWF0IjoxNjc5NDg2OTg1LCJleHAiOjE2Nzk1NzMzODV9.86LfAvajjnawqK8B1RYJ0djhTeerisoS_qYHSqGEnmo"
+=======
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQxYjljNDJiZjFmODFlNzE0MzA2ZTFiIiwiZW1haWwiOiJ0d2dpMjIyM0BnbWFpbC5jb20iLCJpYXQiOjE2Nzk1MzExMDAsImV4cCI6MTY3OTYxNzUwMH0.w5H-pIXfoexb7vKxyDPKXdVhBFqUnaJGTky3G10BrJU"
+>>>>>>> 682ba961db1cc7c3c615d5d80c27a818f61209bd
 }
 
 ###

@@ -2,7 +2,7 @@ POST http://localhost:8080/admin/register HTTP/1.1
 Content-Type: application/json
 
 {
-    "email": "twgi22@gmail.com",
+    "email": "twgi2223@gmail.com",
     "password": "1234567890"
 }
 
@@ -14,7 +14,7 @@ POST http://localhost:8080/admin/login HTTP/1.1
 Content-Type: application/json
 
 {
-    "email": "twgi22@gmail.com",
+    "email": "twgi2223@gmail.com",
     "password": "1234567811190"
 }
 
