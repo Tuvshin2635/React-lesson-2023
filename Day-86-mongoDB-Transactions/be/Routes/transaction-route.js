@@ -6,7 +6,7 @@ const {
 
 const router = Router();
 
-router.get("/shipping", createTransaction);
-router.get("/shippingWithoutSession", creatTransactionWithOutSession);
+router.post("/shipping", createTransaction);
+router.post("/shippingWithoutSession", creatTransactionWithOutSession);
 
 module.exports = router;
