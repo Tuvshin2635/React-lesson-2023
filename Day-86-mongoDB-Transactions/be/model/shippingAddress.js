@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const AddressSchema = new mongoose.Schema({
+const ShippingAddress = new mongoose.Schema({
   address: {
     type: String,
     required: [true, "fill the address"],
@@ -13,6 +13,6 @@ const AddressSchema = new mongoose.Schema({
   user: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
 });
 
-const Address = mongoose.model("Address", AddressSchema);
+const Shipping = mongoose.model("Shipping", ShippingAddress);
 
-module.exports = Address;
+module.exports = Shipping;
