@@ -1,4 +1,4 @@
-import mongoose, { Schema } from "mongoose";
+import React, { useEffect, useState } from "react";
 
 interface IMovies {
   plot: string;
@@ -67,9 +67,28 @@ interface IViewer {
   meter: number;
 }
 
-const MoviesSchema: Schema = new Schema({});
+function MoviesData(): JSX.Element {
+  const [movies, setMovies] = useState<IMovies>([]);
 
-const MoviesModel = mongoose.model<IMovies>("Movies", MoviesSchema);
+  useEffect(() => {
+    fetchMovies();
+  }, []);
 
-export default MoviesModel;
+  const fetchMovies = async (): Promise<void> => {
+    const FETCHED_DATA = await fetch("http://localhost:8080/movies/list");
+    const FETCHED_JSON = await FETCHED_DATA.json();
+    setMovies(FETCHED_JSON);
+    console.log(FETCHED_JSON);
+  };
+  return (
+    <div>
+      <h1>Movies API</h1>
+      {/* {movies} */}
+      {movies.map((e, index) => {
+        <p key={index}> {e} </p>;
+      })}
+    </div>
+  );
+}
 
+export default MoviesData;
