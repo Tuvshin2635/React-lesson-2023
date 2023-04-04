@@ -1,14 +1,14 @@
-import { provider, Context, createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect } from "react";
 
 const RestaurantContext = createContext(null);
 
 const RestaurantContextProvider = ({ children }) => {
   const ALL_RESTAURANT_URL = "http://localhost:8080/restaurant/restaurants";
-  const [restaurant, setRestaurant] = useState([]);
+  const [restaurant, setRestaurants] = useState([]);
   async function fetchRestaurants(url) {
-    const FETCHED_DATA = await fetch(ALL_RESTAURANT_URL);
+    const FETCHED_DATA = await fetch(url);
     const FETCHED_JSON = await FETCHED_DATA.json();
-    setRestaurant(FETCHED_JSON.data);
+    setRestaurants(FETCHED_JSON.data);
   }
 
   useEffect(() => {
@@ -16,7 +16,7 @@ const RestaurantContextProvider = ({ children }) => {
   }, []);
 
   return (
-    <RestaurantContext.Provider value={null}>
+    <RestaurantContext.Provider value={restaurant}>
       {children}
     </RestaurantContext.Provider>
   );

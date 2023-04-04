@@ -1,8 +1,11 @@
 import { useContext } from "react";
 import { MapContainer, TileLayer, Popup, Marker } from "react-leaflet";
+import { RestaurantContext } from "../context/restaurants.context";
 
 export default function Map() {
-  const restaurant = useContext("");
+  const restaurants = useContext(RestaurantContext);
+  console.log(restaurants[0]?.address.coord.reverse());
+
   return (
     <MapContainer center={[51.505, -0.09]} zoom={13} scrollWheelZoom={false}>
       <TileLayer
@@ -14,11 +17,15 @@ export default function Map() {
           A pretty CSS3 popup. <br /> Easily customizable.
         </Popup>
       </Marker>
-      {/* {restaurant.map((r) => {
+      {restaurants.map((r) => {
         return (
-
-        )
-      })} */}
+          <Marker position={[r?.address.coord[1], r?.address.coord[0]]}>
+            <Popup>
+              A pretty CSS3 popup. <br /> Easily customizable.
+            </Popup>
+          </Marker>
+        );
+      })}
     </MapContainer>
   );
 }
