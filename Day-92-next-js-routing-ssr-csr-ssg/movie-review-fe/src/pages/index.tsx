@@ -31,7 +31,7 @@ export default function Home(props: any): JSX.Element {
     <div className={styles.main}>
       <Navbar />
       <MoviesData />
-      <NewUpcoming />
+      {/* <MoviesData /> */}
     </div>
   );
 }
