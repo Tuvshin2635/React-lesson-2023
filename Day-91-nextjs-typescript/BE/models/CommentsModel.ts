@@ -1,12 +1,12 @@
 import mongoose, { Schema } from "mongoose";
 
 interface IComments {
-  //   _id: string;
+  _id: string;
   name: string;
   email: string;
   movie_id: string;
   text: string;
-  date: Date;
+  date: string;
 }
 
 const CommentSchema: Schema = new Schema({});
