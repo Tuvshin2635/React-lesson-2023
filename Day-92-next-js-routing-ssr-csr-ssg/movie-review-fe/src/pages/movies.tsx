@@ -114,26 +114,29 @@ function MoviesData(): JSX.Element {
   }, []);
 
   const fetchMovies = async (): Promise<void> => {
-    const FETCHED_DATA = await fetch("http://localhost:8080/movies/list");
+    const FETCHED_DATA = await fetch("http://localhost:8081/movies/list");
     const FETCHED_JSON = await FETCHED_DATA.json();
     setMovies(FETCHED_JSON);
     console.log(FETCHED_JSON);
   };
 
   return (
-    <div className={styles.newUpcoming}>
-      {movies.map((movie, index) => {
-        return (
-          <div key={index}>
-            <img className={styles.PosterImg} src={movie.poster} />{" "}
-            <p className={styles.PosterPlot}>{movie.plot}</p>
-          </div>
-        );
-      })}
-      {movies.map((e, index) => (
-        <p key={index}> {e.cast} </p>
-      ))}
-    </div>
+    <>
+      <div className={styles.newUpcoming}>
+        {/* <h2> movies </h2> */}
+        {movies.map((movie, index) => {
+          return (
+            <div key={index}>
+              <img className={styles.PosterImg} src={movie.poster} />{" "}
+              <p className={styles.PosterPlot}>{movie.plot}</p>
+            </div>
+          );
+        })}
+        {/* {movies.map((e, index) => (
+          <p key={index}> {e.cast} </p>
+        ))} */}
+      </div>
+    </>
   );
 }
 

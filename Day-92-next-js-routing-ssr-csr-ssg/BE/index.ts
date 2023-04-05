@@ -43,5 +43,5 @@ app.listen(PORT, () => {
     .connect(MONGO_CONNECTION_STRING)
     .then(() => console.log("howdy Mongoose"))
     .catch((err) => console.error(err));
-  console.log(`Day 90 running port 8080`);
+  console.log(`Day 90 running port 8081`);
 });
