@@ -114,7 +114,7 @@ function MoviesData(): JSX.Element {
   }, []);
 
   const fetchMovies = async (): Promise<void> => {
-    const FETCHED_DATA = await fetch("http://localhost:8083/movies/list");
+    const FETCHED_DATA = await fetch("http://localhost:8080/movies/list");
     const FETCHED_JSON = await FETCHED_DATA.json();
     setMovies(FETCHED_JSON);
     console.log(FETCHED_JSON);
