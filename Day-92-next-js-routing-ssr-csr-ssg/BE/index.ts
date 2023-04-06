@@ -1,5 +1,5 @@
 import express, { Express, Request, Response } from "express";
-import dotenv from "dotenv";
+// import dotenv from "dotenv";
 import mongoose from "mongoose";
 import theaterRouter from "./Routes/Theaters.api";
 import cors from "cors";
@@ -10,7 +10,7 @@ require("dotenv").config();
 const app: Express = express();
 const PORT = process.env.PORT;
 const MONGO_CONNECTION_STRING =
-  process.env.MONGO_CONNECTION_STRING || "mongoDB://localhost:8082/test";
+  process.env.MONGO_CONNECTION_STRING || "mongoDB://localhost:8080/test";
 
 app.use(cors());
 
@@ -43,5 +43,5 @@ app.listen(PORT, () => {
     .connect(MONGO_CONNECTION_STRING)
     .then(() => console.log("howdy Mongoose"))
     .catch((err) => console.error(err));
-  console.log(`Day 90 running port 8081`);
+  console.log(`Day 90 running port 8080`);
 });
