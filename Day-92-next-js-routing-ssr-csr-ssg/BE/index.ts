@@ -10,7 +10,7 @@ require("dotenv").config();
 const app: Express = express();
 const PORT = process.env.PORT;
 const MONGO_CONNECTION_STRING =
-  process.env.MONGO_CONNECTION_STRING || "mongoDB://localhost:8080/test";
+  process.env.MONGO_CONNECTION_STRING || "mongoDB://localhost:8082/test";
 
 app.use(cors());
 
