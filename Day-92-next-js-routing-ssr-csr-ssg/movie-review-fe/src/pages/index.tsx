@@ -28,9 +28,7 @@ export default function Home(props: any): JSX.Element {
     //   </Link>
     // </div>
 
-    <div 
-    className="container mx=auto flex justify-between"
-    >
+    <div className="container mx=auto w-full">
       <Navbar />
       <MoviesData />
     </div>
