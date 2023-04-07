@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "@/styles/Home.module.css";
+import Link from "next/link";
 
 // interface IMovies {
 //   plot: string;
@@ -114,34 +115,39 @@ function MoviesData(): JSX.Element {
   }, []);
 
   const fetchMovies = async (): Promise<void> => {
-    const FETCHED_DATA = await fetch("http://localhost:8080/movies/list");
+    const FETCHED_DATA = await fetch("http://localhost:8084/movies/list");
     const FETCHED_JSON = await FETCHED_DATA.json();
     setMovies(FETCHED_JSON);
     console.log(FETCHED_JSON);
   };
 
   return (
-    <>
-      <div 
-      className={styles.small}
-      // className="container"
+    <div className="container mx-auto w-full ">
+      <div
+        // className={styles.small}
+        className="container mx-auto flex justify-between font-serif font-bold "
       >
         <h3> NEW & UPCOMING MOVIES </h3>
         <button> VIEW ALL </button>
       </div>
-      <div className={styles.newUpcoming}>
+      <div className="flex basis-2/12 w-full flex-wrap justify-between  ">
         {movies.map((movie, index) => {
           return (
             <div key={index}>
-              <img className={styles.PosterImg} src={movie.poster} />{" "}
-              <p className={styles.PosterPlot}>{movie.title}</p>
-              <p> {movie.year} </p>
+              <img
+                className={styles.PosterImg + " hover:scale-110"}
+                src={!movie.poster ? "/empty.png" : movie.poster}
+              />
+              <Link href={"http://localhost:3000/details/" + movie._id}>
+                <p className={styles.PosterPlot}>{movie.title}</p>
+              </Link>
+              <p> Released Date: {movie.year} </p>
               {/* <p> {movie.tomatoes} </p> */}
             </div>
           );
         })}
       </div>
-    </>
+    </div>
   );
 }
 
