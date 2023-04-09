@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import styles from "@/styles/Home.module.css";
 import Link from "next/link";
+import Stack from "@mui/material/Stack";
+import Pagination from "@mui/material/Pagination";
 
 // interface IMovies {
 //   plot: string;
@@ -115,10 +117,23 @@ function MoviesData(): JSX.Element {
   }, []);
 
   const fetchMovies = async (): Promise<void> => {
-    const FETCHED_DATA = await fetch("http://localhost:8084/movies/list");
+    const FETCHED_DATA = await fetch("http://localhost:8080/movies/list");
     const FETCHED_JSON = await FETCHED_DATA.json();
     setMovies(FETCHED_JSON);
     console.log(FETCHED_JSON);
+  };
+
+  async function pagination(page: any) {
+    const URL = `http://localhost:8080/movies/list?page=${page}`;
+    const FETCHED_DATA = await fetch(URL);
+    const FETCHED_JSON = await FETCHED_DATA.json();
+    setMovies(FETCHED_JSON);
+  }
+
+  const [page, setPage] = useState(1);
+  const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
+    pagination(value);
+    setPage(value);
   };
 
   return (
@@ -138,14 +153,18 @@ function MoviesData(): JSX.Element {
                 className={styles.PosterImg + " hover:scale-110"}
                 src={!movie.poster ? "/empty.png" : movie.poster}
               />
-              <Link href={"http://localhost:3000/details/" + movie._id}>
+              <Link href={{ pathname: "/movies/" + movie._id }}>
                 <p className={styles.PosterPlot}>{movie.title}</p>
               </Link>
               <p> Released Date: {movie.year} </p>
-              {/* <p> {movie.tomatoes} </p> */}
             </div>
           );
         })}
+      </div>
+      <div>
+        <Stack spacing={2}>
+          <Pagination count={8} page={page} onChange={handleChange} />
+        </Stack>
       </div>
     </div>
   );
