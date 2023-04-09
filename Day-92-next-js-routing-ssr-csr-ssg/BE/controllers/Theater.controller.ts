@@ -17,7 +17,7 @@ export const getTheaterById = async (req: Request, res: Response) => {
     });
     res.status(200).json(theaters);
   } catch (error) {
-    res.status(404).json({ data: [] });
+    res.status(404).json({ data: ["enevv"] });
   }
 };
 

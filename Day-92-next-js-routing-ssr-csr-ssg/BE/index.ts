@@ -10,7 +10,7 @@ require("dotenv").config();
 const app: Express = express();
 const PORT = process.env.PORT || 8080;
 const MONGO_CONNECTION_STRING =
-  process.env.MONGO_CONNECTION_STRING || "mongodb://localhost:27017/test";
+  process.env.MONGO_CONNECTION_STRING || "mongodb://localhost:27017";
 
 app.use(cors());
 
@@ -37,6 +37,7 @@ app.get("/", (req: Request, res: Response) => {
 app.use("/movies", movieRouter);
 app.use("/theaters", theaterRouter);
 app.use("/comments", commentRouter);
+// app.use("/details", movieRouter);
 
 app.listen(PORT, () => {
   mongoose
