@@ -5,6 +5,7 @@ import styles from "@/styles/Home.module.css";
 import Navbar from "./navbar";
 import NewUpcoming from "./newUpcoming";
 import MoviesData from "./movies";
+import { ClassNames } from "@emotion/react";
 
 export default function Home(props: any): JSX.Element {
   console.log(props);
@@ -28,7 +29,7 @@ export default function Home(props: any): JSX.Element {
     //   </Link>
     // </div>
 
-    <div className="container mx=auto w-full">
+    <div className="font-thin ">
       <Navbar />
       <MoviesData />
     </div>

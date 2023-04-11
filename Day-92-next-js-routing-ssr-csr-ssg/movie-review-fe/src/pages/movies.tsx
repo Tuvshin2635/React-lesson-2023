@@ -137,23 +137,26 @@ function MoviesData(): JSX.Element {
   };
 
   return (
-    <div className="container mx-auto w-full ">
+    <div className="mx-auto w-full ">
       <div
         // className={styles.small}
         className="container mx-auto flex justify-between font-serif font-bold "
       >
-        <h3> NEW & UPCOMING MOVIES </h3>
+        <h3 className="font-black border-l-4 border-indigo-900 ">
+          {" "}
+          NEW & UPCOMING MOVIES{" "}
+        </h3>
         <button> VIEW ALL </button>
       </div>
       <div className="flex basis-2/12 w-full flex-wrap justify-between  ">
         {movies.map((movie, index) => {
           return (
             <div key={index}>
-              <img
-                className={styles.PosterImg + " hover:scale-110"}
-                src={!movie.poster ? "/empty.png" : movie.poster}
-              />
               <Link href={{ pathname: "/movies/" + movie._id }}>
+                <img
+                  className={styles.PosterImg + " hover:scale-110"}
+                  src={!movie.poster ? "/empty.png" : movie.poster}
+                />
                 <p className={styles.PosterPlot}>{movie.title}</p>
               </Link>
               <p> Released Date: {movie.year} </p>

@@ -3,7 +3,7 @@ import styles from "@/styles/Home.module.css";
 
 function Navbar() {
   return (
-    <div>
+    <div className="mx-auto">
       <div className={styles.navbar}>
         <div className={styles.leftNavbar}>
           <img
