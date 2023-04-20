@@ -14,6 +14,7 @@ function App() {
 
   const [users, setUsers] = useState([]);
   const [isUpdate, setIsUpdate] = useState(false);
+
   const [currentUser, setCurrentUser] = useState(newUser);
 
   useEffect(() => {
